@@ -75,64 +75,65 @@ This is a work in progress, some cases may not be covered currently, an I hope t
 
 if you run the App, you will find a very simple benchmark. The first iteration is to warmup the JVM, so that it does it's magic, compiling and organizing the bytecode in the most convenient way. Currently the following values are being achieved. As yo can easily see, as soon as the JVM does its magic...things become quite fast.
 
-WARM UP JVM -> Masking 5000 times a root element took  595milisecods
-RUN NUMBER :1
-Test 1 -> Masking 5000 times 2 keys on second level element took -> 47milisecods
-Test 2 -> Masking 5000 times one root element took -> 42milisecods
-RUN NUMBER :2
-Test 1 -> Masking 5000 times 2 keys on second level element took -> 37milisecods
-Test 2 -> Masking 5000 times one root element took -> 35milisecods
-RUN NUMBER :3
-Test 1 -> Masking 5000 times 2 keys on second level element took -> 32milisecods
-Test 2 -> Masking 5000 times one root element took -> 29milisecods
-RUN NUMBER :4
-Test 1 -> Masking 5000 times 2 keys on second level element took -> 22milisecods
-Test 2 -> Masking 5000 times one root element took -> 21milisecods
-RUN NUMBER :5
-Test 1 -> Masking 5000 times 2 keys on second level element took -> 20milisecods
-Test 2 -> Masking 5000 times one root element took -> 21milisecods
-RUN NUMBER :6
-Test 1 -> Masking 5000 times 2 keys on second level element took -> 19milisecods
-Test 2 -> Masking 5000 times one root element took -> 17milisecods
-RUN NUMBER :7
-Test 1 -> Masking 5000 times 2 keys on second level element took -> 20milisecods
-Test 2 -> Masking 5000 times one root element took -> 15milisecods
-RUN NUMBER :8
-Test 1 -> Masking 5000 times 2 keys on second level element took -> 15milisecods
-Test 2 -> Masking 5000 times one root element took -> 15milisecods
-RUN NUMBER :9
-Test 1 -> Masking 5000 times 2 keys on second level element took -> 15milisecods
-Test 2 -> Masking 5000 times one root element took -> 15milisecods
-RUN NUMBER :10
-Test 1 -> Masking 5000 times 2 keys on second level element took -> 15milisecods
-Test 2 -> Masking 5000 times one root element took -> 19milisecods
-RUN NUMBER :11
-Test 1 -> Masking 5000 times 2 keys on second level element took -> 15milisecods
-Test 2 -> Masking 5000 times one root element took -> 15milisecods
-RUN NUMBER :12
-Test 1 -> Masking 5000 times 2 keys on second level element took -> 15milisecods
-Test 2 -> Masking 5000 times one root element took -> 15milisecods
-RUN NUMBER :13
-Test 1 -> Masking 5000 times 2 keys on second level element took -> 15milisecods
-Test 2 -> Masking 5000 times one root element took -> 17milisecods
-RUN NUMBER :14
-Test 1 -> Masking 5000 times 2 keys on second level element took -> 21milisecods
-Test 2 -> Masking 5000 times one root element took -> 21milisecods
-RUN NUMBER :15
-Test 1 -> Masking 5000 times 2 keys on second level element took -> 20milisecods
-Test 2 -> Masking 5000 times one root element took -> 16milisecods
-RUN NUMBER :16
-Test 1 -> Masking 5000 times 2 keys on second level element took -> 14milisecods
-Test 2 -> Masking 5000 times one root element took -> 15milisecods
-RUN NUMBER :17
-Test 1 -> Masking 5000 times 2 keys on second level element took -> 14milisecods
-Test 2 -> Masking 5000 times one root element took -> 15milisecods
-RUN NUMBER :18
-Test 1 -> Masking 5000 times 2 keys on second level element took -> 14milisecods
-Test 2 -> Masking 5000 times one root element took -> 19milisecods
-RUN NUMBER :19
-Test 1 -> Masking 5000 times 2 keys on second level element took -> 14milisecods
-Test 2 -> Masking 5000 times one root element took -> 14milisecods
-RUN NUMBER :20
-Test 1 -> Masking 5000 times 2 keys on second level element took -> 14milisecods
-Test 2 -> Masking 5000 times one root element took -> 15milisecods
+	WARM UP JVM -> Masking 5000 times a root element took  595milisecods
+	RUN NUMBER :1
+	Test 1 -> Masking 5000 times 2 keys on second level element took -> 47milisecods
+	Test 2 -> Masking 5000 times one root element took -> 42milisecods
+	RUN NUMBER :2
+	Test 1 -> Masking 5000 times 2 keys on second level element took -> 37milisecods
+	Test 2 -> Masking 5000 times one root element took -> 35milisecods
+	RUN NUMBER :3
+	Test 1 -> Masking 5000 times 2 keys on second level element took -> 32milisecods
+	Test 2 -> Masking 5000 times one root element took -> 29milisecods
+	RUN NUMBER :4
+	Test 1 -> Masking 5000 times 2 keys on second level element took -> 22milisecods
+	Test 2 -> Masking 5000 times one root element took -> 21milisecods
+	RUN NUMBER :5
+	Test 1 -> Masking 5000 times 2 keys on second level element took -> 20milisecods
+	Test 2 -> Masking 5000 times one root element took -> 21milisecods
+	RUN NUMBER :6
+	Test 1 -> Masking 5000 times 2 keys on second level element took -> 19milisecods
+	Test 2 -> Masking 5000 times one root element took -> 17milisecods
+	RUN NUMBER :7
+	Test 1 -> Masking 5000 times 2 keys on second level element took -> 20milisecods
+	Test 2 -> Masking 5000 times one root element took -> 15milisecods
+	RUN NUMBER :8
+	Test 1 -> Masking 5000 times 2 keys on second level element took -> 15milisecods
+	Test 2 -> Masking 5000 times one root element took -> 15milisecods
+	RUN NUMBER :9
+	Test 1 -> Masking 5000 times 2 keys on second level element took -> 15milisecods
+	Test 2 -> Masking 5000 times one root element took -> 15milisecods
+	RUN NUMBER :10
+	Test 1 -> Masking 5000 times 2 keys on second level element took -> 15milisecods
+	Test 2 -> Masking 5000 times one root element took -> 19milisecods
+	RUN NUMBER :11
+	Test 1 -> Masking 5000 times 2 keys on second level element took -> 15milisecods
+	Test 2 -> Masking 5000 times one root element took -> 15milisecods
+	RUN NUMBER :12
+	Test 1 -> Masking 5000 times 2 keys on second level element took -> 15milisecods
+	Test 2 -> Masking 5000 times one root element took -> 15milisecods
+	RUN NUMBER :13
+	Test 1 -> Masking 5000 times 2 keys on second level element took -> 15milisecods
+	Test 2 -> Masking 5000 times one root element took -> 17milisecods
+	RUN NUMBER :14
+	Test 1 -> Masking 5000 times 2 keys on second level element took -> 21milisecods
+	Test 2 -> Masking 5000 times one root element took -> 21milisecods
+	RUN NUMBER :15
+	Test 1 -> Masking 5000 times 2 keys on second level element took -> 20milisecods
+	Test 2 -> Masking 5000 times one root element took -> 16milisecods
+	RUN NUMBER :16
+	Test 1 -> Masking 5000 times 2 keys on second level element took -> 14milisecods
+	Test 2 -> Masking 5000 times one root element took -> 15milisecods
+	RUN NUMBER :17
+	Test 1 -> Masking 5000 times 2 keys on second level element took -> 14milisecods
+	Test 2 -> Masking 5000 times one root element took -> 15milisecods
+	RUN NUMBER :18
+	Test 1 -> Masking 5000 times 2 keys on second level element took -> 14milisecods
+	Test 2 -> Masking 5000 times one root element took -> 19milisecods
+	RUN NUMBER :19
+	Test 1 -> Masking 5000 times 2 keys on second level element took -> 14milisecods
+	Test 2 -> Masking 5000 times one root element took -> 14milisecods
+	RUN NUMBER :20
+	Test 1 -> Masking 5000 times 2 keys on second level element took -> 14milisecods
+	Test 2 -> Masking 5000 times one root element took -> 15milisecods
+ 
