@@ -35,7 +35,7 @@ Our Json String :
 
 let's say we want to mask the totalSize value on the result Array.
 
-We start by defining a list of the Masks, specifying that the path is ***resultSet/Result*** and the key to mask is ***totalSize**
+We start by defining a list of the Masks, specifying the path to arrive to the object where the key we want to mask is. In this case the path will be ***resultSet/Result***, then we tell the key we want to mask, which is is ***totalSize**
 
 	 final List<JsonMask> jsonMasks = new ArrayList<>(Arrays.asList(new JsonMask("resultSet/result", "totalSize"));
 
