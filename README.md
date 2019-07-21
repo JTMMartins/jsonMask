@@ -33,7 +33,7 @@ Our Json String :
 	  "endTime": 1441969750317
 	}
 
-let's say we want to mask the totalSize on the result Array.
+let's say we want to mask the totalSize value on the result Array.
 
 We start by defining a list of the Masks, specifying that the path is ***resultSet/Result*** and the key to mask is ***totalSize**
 
