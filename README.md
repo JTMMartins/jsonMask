@@ -8,7 +8,8 @@ I've done some tests with Gson, Json-P and Jackson, and for this situation, Jack
 JsonMask, let's you maks Json string directly, by specifiying the path of the key you want to mask, the key to mask, and an optional mask (if no mask is supplied a default of ***** will be used.
 
 How to use :
-Our Json String : 
+
+A sample Json message : 
 
 	String JSON_MESSAGE = {
 	  "httpStatusCode": 200,
