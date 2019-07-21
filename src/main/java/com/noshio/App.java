@@ -69,7 +69,7 @@ public class App {
             final List<JsonMask> jsonMasks2 = new ArrayList<>(Arrays.asList(new JsonMask("", "endTime")));
             final long startTime2 = System.currentTimeMillis();
             for (int i = 0; i < 5000; i++) {
-                final JsonMaskResponse result = JsonMaskService.mask(JSON_MESSAGE, jsonMasks);
+                final JsonMaskResponse result = JsonMaskService.mask(JSON_MESSAGE, jsonMasks2);
             }
             final long stopTime2 = System.currentTimeMillis();
             final long elapsedTime2 = stopTime2 - startTime2;
