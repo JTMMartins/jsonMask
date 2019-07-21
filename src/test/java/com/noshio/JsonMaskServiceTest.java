@@ -13,7 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class JsonMaskServiceTest {
-    
+
     private static final String JSON_MESSAGE = "{\n" +
             "  \"httpStatusCode\": 200,\n" +
             "  \"resultSet\": {\n" +
