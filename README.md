@@ -3,7 +3,7 @@ Sometimes we may find ourselves in a situation where we have a Json String, and 
 
 A common solution is to use Regex's to do the job, however regex are not very fast, and in many situtations are cumbersome to create and we may endup loosing precious time.
 
-I've done some tests with Gson, Json-P and Jackson, and for this situation, Jackson was a clear winner, so we used their API to get most of the work for us :).
+I've done some tests with Gson, Json-P and Jackson, and for this situation, Jackson was a clear winner, so we used their API to get most of the work done for us :).
 
 JsonMask, let's you maks Json string directly, by specifiying the path of the key you want to mask, the key to mask, and an optional mask (if no mask is supplied a default of ***** will be used.
 
