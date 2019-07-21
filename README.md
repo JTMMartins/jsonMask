@@ -45,6 +45,27 @@ now we call the masker
 
 and we get the masked String in the **jsonMessage** field the Object JsonMaskResponse.
 
+	{
+	  "httpStatusCode" : 200,
+	  "resultSet" : {
+	    "result" : {
+	      "totalSize" : "********",
+	      "records" : [ {
+	        "attributes" : {
+	          "type" : "Asset",
+	          "url" : "http://google.com"
+	        },
+	        "Name" : "Some test name",
+	        "type" : "Animal"
+	      } ],
+	      "done" : true
+	    }
+	  },
+	  "messages" : [ ],
+	  "startedTime" : 1441969739375,
+	  "endTime" : 1441969750317
+	}
+
 You can find more examples in the tests.
 
 This is a work in progress, some cases may not be covered currently, an I hope to find the time to further improve the code. 
