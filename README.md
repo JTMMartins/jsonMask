@@ -71,7 +71,7 @@ You can find more examples in the tests.
 
 This is a work in progress, some cases may not be covered currently, an I hope to find the time to further improve the code.
 
-** BenchMarks **
+### Benchmarks ###
 
 if you run the App, you will find a very simple benchmark. The first iteration is to warmup the JVM, so that it does it's magic, compiling and organizing the bytecode in the most convenient way. Currently the following values are being achieved. As yo can easily see, as soon as the JVM does its magic...things become quite fast.
 
