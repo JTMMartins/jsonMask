@@ -1,5 +1,5 @@
 ## JsonMasking the easy way ##
-Sometimes we may find ourselves in a situation where we have a Json String, and we want to mask some particular field or particular array, without actually using object binding..(Actualy we may not even have the object in our code), but even if we do, the binding process is a heavy one, and performance is lost. 
+Sometimes we may find ourselves in a situation where we have a Json String, and we want to mask some particular field or particular array, without actually using object binding..(Actualy we may not even have the object in our code), but even if we do, the binding process is a heavy one that includes many reflection operations, and performance is lost. 
 
 A common solution is to use Regex's to do the job, however regex are not very fast, and in many situtations are cumbersome to create and we may endup loosing precious time.
 
