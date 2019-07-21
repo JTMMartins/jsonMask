@@ -1,11 +1,13 @@
 ## JsonMasking the easy way ##
-Sometimes we may find ourselves in a situation where we have a Json String, and we want to mask some particular field or particular array, without actually using object binding..(Actualy we may not even have the object in our code), but even if we do, the binding process is a heavy one, and performance is lost. 
+Sometimes we may find ourselves in a situation where we have a Json String, and we want to mask some particular field or particular array, without actually using object binding..(Actualy we may not even have the object in our code), but even if we do, the binding process is a heavy one that includes many reflection operations, and performance is lost. 
 
 A common solution is to use Regex's to do the job, however regex are not very fast, and in many situtations are cumbersome to create and we may endup loosing precious time.
 
 I've done some tests with Gson, Json-P and Jackson, and for this situation, Jackson was a clear winner, so we used their API to get most of the work done for us :).
 
-JsonMask, let's you maks Json string directly, by specifiying the path of the key you want to mask, the key to mask, and an optional mask (if no mask is supplied a default of ***** will be used.
+JsonMask, let's you mask a Json string directly by operating and manipulating over the Json tree. 
+
+We will only need to specifiy the path(s) of the key(s) you want to mask, the key(s) to mask, and any optional mask(s) (if no mask is supplied a default of ***** will be used.
 
 How to use :
 
@@ -71,7 +73,7 @@ You can find more examples in the tests.
 
 This is a work in progress, some cases may not be covered currently, an I hope to find the time to further improve the code.
 
-** BenchMarks **
+### Benchmarks ###
 
 if you run the App, you will find a very simple benchmark. The first iteration is to warmup the JVM, so that it does it's magic, compiling and organizing the bytecode in the most convenient way. Currently the following values are being achieved. As yo can easily see, as soon as the JVM does its magic...things become quite fast.
 
