@@ -3,7 +3,7 @@ package com.noshio;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.noshio.api.JsonMask;
 import com.noshio.api.JsonMaskResponse;
-import com.noshio.parser.JsonMaskService;
+import com.noshio.masker.JsonMaskService;
 import com.noshio.api.JsonParseStatus;
 import org.junit.Assert;
 import org.junit.Test;
@@ -40,10 +40,10 @@ public class JsonMaskServiceTest {
     @Test
     public void parseRootLevelWithOneKey() throws JsonProcessingException {
 
-        JsonMask jsonMask = new JsonMask("", "startedTime");
+        final JsonMask jsonMask = new JsonMask("", "startedTime");
         final List<JsonMask> jsonMasks = new ArrayList<>(Arrays.asList(jsonMask));
 
-        JsonMaskResponse result = JsonMaskService.mask(JSON_MESSAGE, jsonMasks);
+        final JsonMaskResponse result = JsonMaskService.mask(JSON_MESSAGE, jsonMasks);
 
         Assert.assertEquals(JsonParseStatus.PARSED, result.getJsonParseStatus());
         Assert.assertEquals(null, result.getErrorCause());
@@ -55,7 +55,7 @@ public class JsonMaskServiceTest {
         final List<JsonMask> jsonMasks = new ArrayList<>(Arrays.asList(
                 new JsonMask("", "startedTime", "####")));
 
-        JsonMaskResponse result = JsonMaskService.mask(JSON_MESSAGE, jsonMasks);
+        final JsonMaskResponse result = JsonMaskService.mask(JSON_MESSAGE, jsonMasks);
 
         Assert.assertEquals(JsonParseStatus.PARSED, result.getJsonParseStatus());
         Assert.assertEquals(null, result.getErrorCause());
@@ -69,7 +69,7 @@ public class JsonMaskServiceTest {
                 new JsonMask("", "startedTime"),
                 new JsonMask("", "resultSet")));
 
-        JsonMaskResponse result = JsonMaskService.mask(JSON_MESSAGE, jsonMasks);
+        final JsonMaskResponse result = JsonMaskService.mask(JSON_MESSAGE, jsonMasks);
 
         Assert.assertEquals(JsonParseStatus.PARSED, result.getJsonParseStatus());
         Assert.assertEquals(null, result.getErrorCause());
@@ -82,7 +82,7 @@ public class JsonMaskServiceTest {
         final List<JsonMask> jsonMasks = new ArrayList<>(Arrays.asList(
                 new JsonMask("resultSet", "result")));
 
-        JsonMaskResponse result = JsonMaskService.mask(JSON_MESSAGE, jsonMasks);
+        final JsonMaskResponse result = JsonMaskService.mask(JSON_MESSAGE, jsonMasks);
 
         Assert.assertEquals(JsonParseStatus.PARSED, result.getJsonParseStatus());
 
@@ -97,7 +97,7 @@ public class JsonMaskServiceTest {
                 new JsonMask("resultSet/result", "totalSize"),
                 new JsonMask("resultSet/result", "records")));
 
-        JsonMaskResponse result = JsonMaskService.mask(JSON_MESSAGE, jsonMasks);
+        final JsonMaskResponse result = JsonMaskService.mask(JSON_MESSAGE, jsonMasks);
 
         Assert.assertEquals(JsonParseStatus.PARSED, result.getJsonParseStatus());
         Assert.assertEquals(null, result.getErrorCause());
@@ -109,7 +109,7 @@ public class JsonMaskServiceTest {
     @Test
     public void parseWithNullMaskListReturnsUnparsedStatusResponse() throws JsonProcessingException {
 
-        JsonMaskResponse result = JsonMaskService.mask(JSON_MESSAGE, null);
+        final JsonMaskResponse result = JsonMaskService.mask(JSON_MESSAGE, null);
 
         Assert.assertEquals(JsonParseStatus.UNPARSED, result.getJsonParseStatus());
         Assert.assertEquals(JSON_MESSAGE, result.getJsonMessage());

@@ -1,4 +1,4 @@
-package com.noshio.parser;
+package com.noshio.masker;
 
 import lombok.Getter;
 import lombok.Setter;

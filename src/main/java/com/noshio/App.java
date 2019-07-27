@@ -3,7 +3,7 @@ package com.noshio;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.noshio.api.JsonMask;
 import com.noshio.api.JsonMaskResponse;
-import com.noshio.parser.JsonMaskService;
+import com.noshio.masker.JsonMaskService;
 
 import java.util.ArrayList;
 import java.util.Arrays;

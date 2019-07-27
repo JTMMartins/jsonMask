@@ -1,4 +1,4 @@
-package com.noshio.parser;
+package com.noshio.masker;
 
 import com.noshio.api.JsonMask;
 
@@ -15,7 +15,7 @@ final class MaskCombiner {
 
     public Map<String, List<MaskingElement>> combine(final List<JsonMask> jsonMasks) {
         if (jsonMasks == null) {
-            throw new IllegalArgumentException("jsonMasks can not be null");
+            throw new IllegalArgumentException("JsonMasks can not be null");
         }
 
         final Map<String, List<MaskingElement>> combinedMasks = new HashMap<>();

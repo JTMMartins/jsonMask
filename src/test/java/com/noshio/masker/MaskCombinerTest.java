@@ -1,4 +1,4 @@
-package com.noshio.parser;
+package com.noshio.masker;
 
 import com.noshio.api.JsonMask;
 import org.junit.Assert;

@@ -1,8 +1,9 @@
-package com.noshio.parser;
+package com.noshio.masker;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.JsonNodeType;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.noshio.api.JsonMask;
@@ -49,7 +50,7 @@ public class JsonMaskService {
         return buildJsonParseResponse(originalNode);
     }
 
-    private static JsonMaskResponse buildJsonParseResponse(JsonNode jsonNode) throws JsonProcessingException {
+    private static JsonMaskResponse buildJsonParseResponse(final JsonNode jsonNode) throws JsonProcessingException {
         return new JsonMaskResponse(
                 JsonParseStatus.PARSED,
                 mapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonNode), null);
@@ -70,12 +71,14 @@ public class JsonMaskService {
     }
 
 
-    private static void processCurrentNode(JsonNode jsonNode, List<MaskingElement> jsonMasks) {
+    private static void processCurrentNode(final JsonNode jsonNode, final List<MaskingElement> jsonMasks) {
         final JsonNodeType nodeType = jsonNode.getNodeType();
         switch (nodeType) {
             case ARRAY:
+                jsonMasks.forEach(mask -> maskArray(jsonNode, mask));
+                break;
             case OBJECT:
-                jsonMasks.forEach(mask -> maskComplex(jsonNode, mask));
+                jsonMasks.forEach(mask -> maskObject(jsonNode, mask));
                 break;
             case NUMBER:
             case STRING:
@@ -92,8 +95,20 @@ public class JsonMaskService {
         return jsonMessage != null && jsonMasks != null;
     }
 
-    private static void maskComplex(JsonNode jsonNode, MaskingElement jsonMask) {
-        ((ObjectNode) jsonNode).put(jsonMask.getJsonKey(), jsonMask.getMask());
+    private static ArrayNode maskArray(final JsonNode jsonNode, final MaskingElement jsonMask) {
+
+        final ArrayNode arrayNode = (ArrayNode) jsonNode;
+
+        for (int i = 0; i < arrayNode.size(); i++) {
+            final JsonNode currentNode = arrayNode.get(i);
+            arrayNode.remove(i);
+            arrayNode.insert(i, maskObject(currentNode, jsonMask));
+        }
+        return arrayNode;
+    }
+
+    private static JsonNode maskObject(final JsonNode jsonNode, final MaskingElement jsonMask) {
+        return ((ObjectNode) jsonNode).put(jsonMask.getJsonKey(), jsonMask.getMask());
     }
 }
 
