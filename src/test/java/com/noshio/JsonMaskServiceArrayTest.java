@@ -1,19 +1,21 @@
 package com.noshio;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.noshio.api.JsonMask;
 import com.noshio.api.JsonMaskResponse;
 import com.noshio.masker.JsonMaskService;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class JsonMaskServiceArrayTest {
 
-    private static  final String JSON_MESSAGE = "{\n" +
+    private static final String JSON_MESSAGE = "{\n" +
             "  \"data\": [\n" +
             "    {\n" +
             "      \"_id\": \"5d3a34bc864b6e86d7f36635\",\n" +
@@ -116,5 +118,24 @@ public class JsonMaskServiceArrayTest {
         final JsonMaskResponse result = JsonMaskService.mask(JSON_MESSAGE, jsonMasks);
         Assert.assertFalse(result.getJsonMessage().contains("$3,082.04"));
         Assert.assertFalse(result.getJsonMessage().contains("$2,203.51"));
+    }
+
+    /**
+     * tags is a list inside the data array.
+     * We want to completely mask the list values.
+     *
+     * @throws JsonProcessingException
+     */
+    @Test
+    public void maskJsonListInsideJsonArray() throws IOException {
+        final JsonMask jsonMask = new JsonMask("data", "tags");
+        final List<JsonMask> jsonMasks = new ArrayList<>(Arrays.asList(jsonMask));
+        final JsonMaskResponse result = JsonMaskService.mask(JSON_MESSAGE, jsonMasks);
+        final ObjectMapper mapper = new ObjectMapper();
+        final ArrayTestObject resultAsObject = mapper.readValue(result.getJsonMessage(), ArrayTestObject.class);
+        final List<ArrayObjectData> resultData = resultAsObject.getData();
+
+        resultData.forEach(arrayObjectData ->
+                Assert.assertTrue(arrayObjectData.getTags().equals(jsonMask.getMask())));
     }
 }
